@@ -1,5 +1,0 @@
-Placement system
-	Grid
-	Check mouse
-	check existing placements
-	add object
