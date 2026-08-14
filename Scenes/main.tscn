@@ -1,3 +1,38 @@
 [gd_scene format=3 uid="uid://bp1dpy336sthu"]
 
+[ext_resource type="PackedScene" uid="uid://chgwyu5crt6ht" path="res://Scenes/player.tscn" id="1_jjgbg"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cvnsp"]
+albedo_color = Color(0.30588236, 0.25882354, 0.5921569, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_g4v7s"]
+material = SubResource("StandardMaterial3D_cvnsp")
+size = Vector2(50, 50)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_g4v7s"]
+size = Vector3(50, 0, 50)
+
+[sub_resource type="PrismMesh" id="PrismMesh_g4v7s"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_g4v7s"]
+
 [node name="main" type="Node2D" unique_id=1102923984]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1782299463]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D" unique_id=808128279]
+mesh = SubResource("PlaneMesh_g4v7s")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=843913685]
+shape = SubResource("BoxShape3D_g4v7s")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="StaticBody3D" unique_id=239266383]
+transform = Transform3D(17.442995, 0, 0, 0, 10.57412, 0, 0, 0, 2.2329035, -10.809105, 0.5305886, -9.319144)
+mesh = SubResource("PrismMesh_g4v7s")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="StaticBody3D" unique_id=901502139]
+transform = Transform3D(5.11, 0, 0, 0, 5.11, 0, 0, 0, 5.11, 7.8840337, 0.4900775, 3.6590838)
+mesh = SubResource("SphereMesh_g4v7s")
+
+[node name="Player" parent="." unique_id=1213535294 instance=ExtResource("1_jjgbg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0538863, 0)
